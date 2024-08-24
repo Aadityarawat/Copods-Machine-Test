@@ -11,6 +11,7 @@ import android.view.Window
 import android.widget.TextView
 import android.widget.ImageView
 import com.adityarawat.copodsmahinetest.R
+import com.bumptech.glide.Glide
 
 class TextFeedRenderer(private val context: Context) : FeedDisplay<FeedItem.TextFeed> {
     override fun render(item: FeedItem.TextFeed): View {
