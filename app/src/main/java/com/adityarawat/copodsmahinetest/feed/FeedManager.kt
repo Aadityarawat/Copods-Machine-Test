@@ -13,7 +13,6 @@ class FeedManager(private val feedRepository: FeedRepository) {
         for (item in feedItems) {
             val renderer = FeedRendererFactory.getRenderer(item, context)
 
-            // Use smart casts to handle the correct item type
             val view = when (item) {
                 is FeedItem.TextFeed -> {
                     val specificRenderer = renderer as FeedDisplay<FeedItem.TextFeed>

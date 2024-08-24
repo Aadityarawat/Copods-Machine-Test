@@ -15,16 +15,14 @@ import com.bumptech.glide.Glide
 
 class TextFeedRenderer(private val context: Context) : FeedDisplay<FeedItem.TextFeed> {
     override fun render(item: FeedItem.TextFeed): View {
-        // Create and return a TextView with the content of the text feed item
         val textView = TextView(context)
         textView.text = item.textContent
-        // Additional styling based on TextStyle
+
         return textView
     }
 
     override fun handleInteraction(view: View, item: FeedItem.TextFeed) {
         view.setOnLongClickListener {
-            // Copy text content to clipboard
             copyToClipboard(item.textContent)
             true
         }
@@ -38,15 +36,13 @@ class TextFeedRenderer(private val context: Context) : FeedDisplay<FeedItem.Text
 
 class ImageFeedRenderer(private val context: Context) : FeedDisplay<FeedItem.ImageFeed> {
     override fun render(item: FeedItem.ImageFeed): View {
-        // Create and return an ImageView with the content of the image feed item
         val imageView = ImageView(context)
-        loadImage(imageView, item.imageUrl) // Load image from URL
+        loadImage(imageView, item.imageUrl)
         return imageView
     }
 
     override fun handleInteraction(view: View, item: FeedItem.ImageFeed) {
         view.setOnClickListener {
-            // Expand the image
             expandImage(item.imageUrl)
         }
     }
@@ -72,15 +68,13 @@ class ImageFeedRenderer(private val context: Context) : FeedDisplay<FeedItem.Ima
 
 class VideoFeedRenderer(private val context: Context) : FeedDisplay<FeedItem.VideoFeed> {
     override fun render(item: FeedItem.VideoFeed): View {
-        // Create and return a View with the thumbnail of the video feed item
         val videoThumbnailView = ImageView(context)
-        loadImage(videoThumbnailView, item.thumbnailUrl) // Load thumbnail from URL
+        loadImage(videoThumbnailView, item.thumbnailUrl)
         return videoThumbnailView
     }
 
     override fun handleInteraction(view: View, item: FeedItem.VideoFeed) {
         view.setOnClickListener {
-            // Play the video
             playVideo(item.videoUrl)
         }
     }
